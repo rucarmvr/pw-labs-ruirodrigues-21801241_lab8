@@ -1,0 +1,28 @@
+{% extends 'portfolio/layout.html' %}
+
+{% load static %}
+
+{% block content %}
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="projects container">
+            <div class="projects-header">
+                <h1 class="section-title">Licen<span>c</span>iatura</h1>
+            </div>
+            <div class="all-projects">
+                {% for lic_content in licenciatura %}
+                    <div class="project1-item">
+                        <div class="project-info">
+                            <h1>{{ lic_content.disciplina }} </h1>
+                            <a href="{{ lic_content.link }}">{{ lic_content.disciplina }}</a>
+                            <h2>{{ lic_content.semestre }} </h2>
+                            <p>{{ lic_content.ect }} </p>
+                            <p>{{ lic_content.texto }} </p>
+                        </div>
+                    </div>
+                    <br>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'portfolio/layout.html' %}
+
+{% block content %}
+    <!-- Hero Section  -->
+    <section id="hero">
+        <div class="hero container">
+            <div>
+                <h1>Todo o pensamento positivo <span></span></h1>
+                <h1>tem a direçāo <span></span></h1>
+                <h1>certa <span></span></h1>
+                {% if user.is_authenticated %}
+                    <a href="projects" type="button" class="cta">Portfolio</a>
+                {% else %}
+                {% endif %}
+            </div>
+        </div>
+    </section>
+{% endblock %}

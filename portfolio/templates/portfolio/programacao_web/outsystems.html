@@ -1,0 +1,29 @@
+{% extends 'portfolio/layout.html' %}
+
+{% load static %}
+
+{% block content %}
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="projects container">
+            <div class="projects-header">
+                <h1 class="section-title">Out<span>S</span>ystems</h1>
+            </div>
+            <div class="all-projects">
+                {% for out_content in outsystems %}
+                    <div class="project2-item">
+                        <div class="project-info">
+                            <h1>{{ out_content.titulo }} </h1>
+                            <h2>{{ out_content.subtitulo }} </h2>
+                            <p>{{ out_content.texto }} </p>
+                            <p>{{ out_content.texto2 }} </p>
+                            <a href="{{ out_content.url }}" class="cta">go to</a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    <!-- End Projects Section -->
+
+{% endblock %}
