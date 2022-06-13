@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 import os
+import django_heroku
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -22,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-^(k769t%*sr)((x+)le$6!m!+@t4$^04vp2eoufngwu4bqvt-e'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['https://deploy-weather-application.herokuapp.com', 'localhost', '127.0.0.1']
 
 # Application definition
 
@@ -124,7 +125,4 @@ MEDIA_URL = '/media/'
 LOGIN_REDIRECT_URL = 'index'
 LOGOUT_REDIRECT_URL = 'index'
 
-if "DYNO" in os.environ:
-    STATIC_ROOT = 'static'
-    ALLOWED_HOSTS = ['example.herokuapp.com']
-    DEBUG = False
+django_heroku.settings(locals())
